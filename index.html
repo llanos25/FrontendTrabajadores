@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="app">
+       <h1>REGISTRO DE TRABAJADORES</h1>
+       <label>Cedula: </label>
+       <input type="text" v-model="id"><br><br>
+       <label>Nombre: </label>
+       <input type="text" v-model="nombre"><br><br>
+       <label>Apellido: </label>
+       <input type="text" v-model="apellido"><br><br>
+       <label>Teléfono: </label>
+       <input type="tel" v-model="telefono"><br><br>
+       <label>Correo: </label>
+       <input type="email" v-model="correo"><br><br>
+       <input type="button" value="Guardar Trabajador" v-on:click="guardarTrabajador">
+       <br>
+       <br>
+       <div>
+           <h1>Eliminar Trabajador</h1>
+           <label>Ingrese cédula</label>
+           <input type="text" v-model="ideliminar">
+           <input type="button" value="Eliminar" v-on:click="eliminarTrabajador">
+
+       </div>
+       <br>
+       <br>
+       
+       <input type="button" value="Consultar Trabajador" v-on:click="consultarTrabajador">
+       <br>
+       <br>
+       
+       <table border=1>
+           <thead>
+               <tr>
+                   <td>Cédula</td>
+                   <td>Nombre</td>
+                   <td>Apellido</td>
+                   <td>Teléfono</td>
+                   <td>Correo</td>
+               </tr>
+           </thead>
+           <tbody>
+               <tr v-for="trabajador in datosconsulta">
+                   <td>{{ trabajador.id }}</td>
+                   <td>{{ trabajador.nombre }}</td>
+                   <td>{{ trabajador.apellido }}</td>
+                   <td>{{ trabajador.telefono }}</td>
+                   <td>{{ trabajador.correo }}</td>
+               </tr>
+           </tbody>
+       </table>
+   </div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/app.js"></script>
+<script src="js/sweetalert2.all.min.js"></script>
+
+</html>
